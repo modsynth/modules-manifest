@@ -1,0 +1,351 @@
+{
+  "version": "1.0.0",
+  "description": "Modsynth module manifest - Android AOSP style meta-repository",
+  "updated": "2025-11-09",
+  "modules": {
+    "infrastructure": [
+      {
+        "name": "module-catalog-mcp",
+        "repo": "https://github.com/modsynth/module-catalog-mcp.git",
+        "path": "modules/infrastructure/module-catalog-mcp",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "MCP Server for module search and recommendation"
+      },
+      {
+        "name": "claude-code-templates",
+        "repo": "https://github.com/modsynth/claude-code-templates.git",
+        "path": "modules/infrastructure/claude-code-templates",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Claude Code slash command templates"
+      },
+      {
+        "name": "shared-configs",
+        "repo": "https://github.com/modsynth/shared-configs.git",
+        "path": "modules/infrastructure/shared-configs",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "Shared configurations (ESLint, Prettier, TypeScript)"
+      }
+    ],
+    "backend": [
+      {
+        "name": "auth-module",
+        "repo": "https://github.com/modsynth/auth-module.git",
+        "path": "modules/backend/auth-module",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "JWT + OAuth2.0 authentication module for Go",
+        "techStack": ["Go", "JWT", "OAuth2.0"],
+        "dependencies": ["cache-module"]
+      },
+      {
+        "name": "db-module",
+        "repo": "https://github.com/modsynth/db-module.git",
+        "path": "modules/backend/db-module",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "Database abstraction layer with Repository pattern (GORM)",
+        "techStack": ["Go", "GORM", "PostgreSQL", "MySQL"],
+        "dependencies": []
+      },
+      {
+        "name": "cache-module",
+        "repo": "https://github.com/modsynth/cache-module.git",
+        "path": "modules/backend/cache-module",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "Redis cache client wrapper for Go",
+        "techStack": ["Go", "Redis"],
+        "dependencies": []
+      },
+      {
+        "name": "messaging-module",
+        "repo": "https://github.com/modsynth/messaging-module.git",
+        "path": "modules/backend/messaging-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "RabbitMQ/Kafka messaging abstraction",
+        "techStack": ["Go", "RabbitMQ", "Kafka"],
+        "dependencies": []
+      },
+      {
+        "name": "monitoring-module",
+        "repo": "https://github.com/modsynth/monitoring-module.git",
+        "path": "modules/backend/monitoring-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Prometheus + Grafana monitoring integration",
+        "techStack": ["Go", "Prometheus", "Grafana"],
+        "dependencies": []
+      },
+      {
+        "name": "logging-module",
+        "repo": "https://github.com/modsynth/logging-module.git",
+        "path": "modules/backend/logging-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Structured logging module for Go",
+        "techStack": ["Go", "Zap", "Logrus"],
+        "dependencies": []
+      },
+      {
+        "name": "api-gateway",
+        "repo": "https://github.com/modsynth/api-gateway.git",
+        "path": "modules/backend/api-gateway",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "API Gateway pattern implementation",
+        "techStack": ["Go", "Gin", "Echo"],
+        "dependencies": ["auth-module"]
+      },
+      {
+        "name": "file-storage-module",
+        "repo": "https://github.com/modsynth/file-storage-module.git",
+        "path": "modules/backend/file-storage-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "S3/MinIO file storage abstraction",
+        "techStack": ["Go", "S3", "MinIO"],
+        "dependencies": []
+      },
+      {
+        "name": "notification-module",
+        "repo": "https://github.com/modsynth/notification-module.git",
+        "path": "modules/backend/notification-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Notification service (Email, SMS, Push)",
+        "techStack": ["Go", "SMTP", "Twilio", "FCM"],
+        "dependencies": []
+      },
+      {
+        "name": "task-scheduler",
+        "repo": "https://github.com/modsynth/task-scheduler.git",
+        "path": "modules/backend/task-scheduler",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Task scheduler (Cron, batch jobs)",
+        "techStack": ["Go", "Cron"],
+        "dependencies": []
+      },
+      {
+        "name": "search-module",
+        "repo": "https://github.com/modsynth/search-module.git",
+        "path": "modules/backend/search-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Elasticsearch search integration",
+        "techStack": ["Go", "Elasticsearch"],
+        "dependencies": []
+      },
+      {
+        "name": "payment-module",
+        "repo": "https://github.com/modsynth/payment-module.git",
+        "path": "modules/backend/payment-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Payment service integration",
+        "techStack": ["Go", "Stripe", "PayPal"],
+        "dependencies": []
+      },
+      {
+        "name": "analytics-module",
+        "repo": "https://github.com/modsynth/analytics-module.git",
+        "path": "modules/backend/analytics-module",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Analytics data collection module",
+        "techStack": ["Go", "ClickHouse", "BigQuery"],
+        "dependencies": []
+      }
+    ],
+    "frontend": [
+      {
+        "name": "ui-components",
+        "repo": "https://github.com/modsynth/ui-components.git",
+        "path": "modules/frontend/ui-components",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "React UI component library with Tailwind CSS",
+        "techStack": ["React", "TypeScript", "Tailwind CSS"],
+        "dependencies": []
+      },
+      {
+        "name": "api-client",
+        "repo": "https://github.com/modsynth/api-client.git",
+        "path": "modules/frontend/api-client",
+        "version": "v0.1.0",
+        "required": true,
+        "description": "REST API client based on Axios",
+        "techStack": ["TypeScript", "Axios"],
+        "dependencies": []
+      },
+      {
+        "name": "auth-client",
+        "repo": "https://github.com/modsynth/auth-client.git",
+        "path": "modules/frontend/auth-client",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Authentication client for frontend (JWT + OAuth2.0)",
+        "techStack": ["React", "TypeScript"],
+        "dependencies": ["api-client"]
+      },
+      {
+        "name": "state-management",
+        "repo": "https://github.com/modsynth/state-management.git",
+        "path": "modules/frontend/state-management",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Redux Toolkit state management module",
+        "techStack": ["React", "Redux Toolkit", "TypeScript"],
+        "dependencies": []
+      },
+      {
+        "name": "form-validation",
+        "repo": "https://github.com/modsynth/form-validation.git",
+        "path": "modules/frontend/form-validation",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "React Hook Form validation module",
+        "techStack": ["React", "React Hook Form", "Zod"],
+        "dependencies": []
+      },
+      {
+        "name": "routing",
+        "repo": "https://github.com/modsynth/routing.git",
+        "path": "modules/frontend/routing",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "React Router routing module",
+        "techStack": ["React", "React Router"],
+        "dependencies": []
+      },
+      {
+        "name": "error-handling",
+        "repo": "https://github.com/modsynth/error-handling.git",
+        "path": "modules/frontend/error-handling",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Error Boundary error handling module",
+        "techStack": ["React", "TypeScript"],
+        "dependencies": []
+      },
+      {
+        "name": "websocket-client",
+        "repo": "https://github.com/modsynth/websocket-client.git",
+        "path": "modules/frontend/websocket-client",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "WebSocket real-time communication client",
+        "techStack": ["TypeScript", "WebSocket"],
+        "dependencies": []
+      },
+      {
+        "name": "i18n",
+        "repo": "https://github.com/modsynth/i18n.git",
+        "path": "modules/frontend/i18n",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Internationalization module (i18next)",
+        "techStack": ["React", "i18next"],
+        "dependencies": []
+      },
+      {
+        "name": "analytics-client",
+        "repo": "https://github.com/modsynth/analytics-client.git",
+        "path": "modules/frontend/analytics-client",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Frontend analytics client",
+        "techStack": ["TypeScript", "Google Analytics"],
+        "dependencies": []
+      },
+      {
+        "name": "chart-components",
+        "repo": "https://github.com/modsynth/chart-components.git",
+        "path": "modules/frontend/chart-components",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Chart components (Chart.js)",
+        "techStack": ["React", "Chart.js", "TypeScript"],
+        "dependencies": ["ui-components"]
+      },
+      {
+        "name": "table-components",
+        "repo": "https://github.com/modsynth/table-components.git",
+        "path": "modules/frontend/table-components",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Table components (TanStack Table)",
+        "techStack": ["React", "TanStack Table", "TypeScript"],
+        "dependencies": ["ui-components"]
+      }
+    ],
+    "documentation": [
+      {
+        "name": "docs-dev",
+        "repo": "https://github.com/modsynth/docs-dev.git",
+        "path": "modules/documentation/docs-dev",
+        "version": "v1.0.0",
+        "required": true,
+        "description": "Project documentation and architecture guides"
+      },
+      {
+        "name": "docs-site",
+        "repo": "https://github.com/modsynth/docs-site.git",
+        "path": "modules/documentation/docs-site",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Modsynth documentation site (Docusaurus)"
+      },
+      {
+        "name": "examples",
+        "repo": "https://github.com/modsynth/examples.git",
+        "path": "modules/documentation/examples",
+        "version": "v0.1.0",
+        "required": false,
+        "description": "Sample projects and usage examples"
+      }
+    ]
+  },
+  "profiles": {
+    "full": {
+      "description": "All modules including optional ones",
+      "includes": ["*"]
+    },
+    "minimal": {
+      "description": "Only required core modules",
+      "includes": [
+        "shared-configs",
+        "module-catalog-mcp",
+        "auth-module",
+        "db-module",
+        "cache-module",
+        "ui-components",
+        "api-client",
+        "docs-dev"
+      ]
+    },
+    "backend-only": {
+      "description": "Backend modules only",
+      "includes": ["backend/*", "infrastructure/*"]
+    },
+    "frontend-only": {
+      "description": "Frontend modules only",
+      "includes": ["frontend/*", "infrastructure/*"]
+    },
+    "phase-1": {
+      "description": "Phase 1 core modules for initial development",
+      "includes": [
+        "auth-module",
+        "db-module",
+        "cache-module",
+        "ui-components",
+        "api-client",
+        "shared-configs"
+      ]
+    }
+  }
+}
